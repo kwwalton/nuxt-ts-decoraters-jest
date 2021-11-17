@@ -1,28 +1,12 @@
 import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators'
 
-interface UserData {
-    first: string
-    last: string
-    phone: number
-}
-
 @Module({
-    name: 'users',
+    name: 'counting',
     stateFactory: true,
     namespaced: true
 })
-export default class Users extends VuexModule {
-    public info: UserData = {
-        first: 'Ken',
-        last: 'Walton',
-        phone: 1234567890
-    }
-
+export default class Counting extends VuexModule {
     public count = 0
-
-    get fullName(): string {
-        return this.info.first + ' ' + this.info.last
-    }
 
     @Mutation
     setIncrement() {
